@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Open+Sans:wght@300;400;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <title>Document</title>
+        <style>
+            * {
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                /* font-family: 'Open Sans', sans-serif; */
+                font-family: 'Lato', sans-serif;
+                background: rgb(253, 253, 254);
+                background: linear-gradient(
+                    0deg,
+                    rgba(253, 253, 254, 1) 35%,
+                    rgba(237, 237, 248, 1) 100%
+                );
+            }
+            .container {
+                color: black;
+                display: flex;
+                height: 100vh;
+                justify-content: center;
+            }
+            .box1 {
+                width: 40%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                position: relative;
+                z-index: 70;
+                overflow: visible;
+            }
+            .box2 {
+                width: 50%;
+                height: 100%;
+                display: flex;
+                justify-content: space-around;
+                padding: 20px;
+                position: relative;
+            }
+            .wave {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                z-index: 10;
+                width: 65%;
+                height: 60%;
+                opacity: 0.8;
+                border-radius: 999px 10px 10px 10px;
+                background: rgb(249, 250, 253);
+                background: linear-gradient(
+                    0deg,
+                    rgba(249, 250, 253, 1) 35%,
+                    rgba(233, 235, 247, 1) 100%
+                );
+            }
+            button {
+                background-color: #ffab02;
+                border: 0;
+                padding: 10px 25px 10px 25px;
+                font-size: medium;
+                color: white;
+                border-radius: 5px;
+                margin-top: 18px;
+                -webkit-box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.3);
+                box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.3);
+                cursor: pointer;
+                transition: all 100ms ease-in;
+            }
+            button:hover {
+                scale: 1.05;
+            }
+            button:active {
+                scale: 0.95;
+            }
+            .title {
+                font-weight: 400;
+                font-size: 3em;
+                color: #1a237e;
+                letter-spacing: 2px;
+            }
+            .text-wrapper {
+                margin-left: 55px;
+                z-index: 99;
+                width: 75%;
+            }
+            .text {
+                color: #5c6bc0;
+                margin-top: 18px;
+                letter-spacing: 1px;
+                line-height: 1.6;
+            }
+            .cards-container {
+                width: 45%;
+                z-index: 99;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+            }
+            .card {
+                display: flex;
+                flex-direction: column;
+                padding: 24px;
+                background-color: white;
+                border-radius: 3px;
+                border: 1px solid rgb(211, 211, 211);
+                margin-bottom: 40px;
+                transition: all 200ms ease-in-out;
+                cursor: pointer;
+            }
+            .card:hover {
+                scale: 1.05;
+                -webkit-box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.3);
+                box-shadow: 0px 2px 9px 0px rgba(0, 0, 0, 0.3);
+            }
+            .card:active {
+                scale: 0.95;
+            }
+            .wave2 {
+                position: absolute;
+                width: 65%;
+                background-color: #ebedf7;
+                top: 0;
+                right: 0;
+                height: 50%;
+                border-radius: 0px 0px 0px 999px;
+                z-index: 1;
+            }
+            .icon {
+                height: 40px;
+                background-color: rgba(30, 136, 229, 0.4);
+                width: 40px;
+                padding: 5px;
+                border-radius: 8px;
+                color: #1e88e5;
+            }
+            .icon1 {
+                height: 40px;
+                background-color: rgba(249, 168, 37, 0.4);
+                width: 40px;
+                padding: 5px;
+                border-radius: 8px;
+                color: #f9a825;
+            }
+            .icon2 {
+                height: 40px;
+                background-color: rgba(67, 160, 72, 0.4);
+                width: 40px;
+                padding: 5px;
+                border-radius: 8px;
+                color: #43a048;
+            }
+            .icon3 {
+                height: 40px;
+                background-color: rgba(142, 37, 170, 0.4);
+                width: 40px;
+                padding: 5px;
+                border-radius: 8px;
+                color: #8e25aa;
+            }
+            .card-title {
+                font-weight: 600;
+                color: #1a237e;
+                letter-spacing: 1px;
+                margin-top: 16px;
+                line-height: 155%;
+            }
+            .card-text {
+                letter-spacing: 1px;
+                margin-top: 16px;
+                color: #5c6bc0;
+                line-height: 135%;
+            }
+            @media only screen and (max-width: 1280px) {
+                .text-wrapper {
+                    width: auto;
+                }
+                .card-title {
+                    font-size: 18px;
+                }
+                .card-text {
+                    font-size: 14px;
+                }
+                .wave {
+                    width: 85%;
+                }
+            }
+            @media only screen and (max-width: 1024px) {
+                .container {
+                    padding: 0;
+                }
+            }
+            @media only screen and (max-width: 768px) {
+                .container {
+                    flex-direction: column;
+                    height: auto;
+                    padding: 20px;
+                }
+                .box1 {
+                    width: 100%;
+                    padding: 8px;
+                }
+                .box2 {
+                    width: 100%;
+                    margin-top: 65px;
+                    padding: 8px;
+                }
+                .wave {
+                    display: none;
+                }
+            }
+            @media only screen and (max-width: 640px) {
+                .text-wrapper {
+                    margin: 0;
+                }
+                .box2 {
+                    flex-direction: column;
+                }
+                .cards-container {
+                    width: 100%;
+                }
+                .wave2 {
+                    right: -20px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="box1">
+                <div class="text-wrapper">
+                    <h3
+                        style="
+                            font-weight: 200;
+                            color: #5c6bc0;
+                            font-size: 16px;
+                        "
+                    >
+                        LOREM IPSUM
+                    </h3>
+                    <h1 class="title">
+                        <span style="color: #314efe">Lorem ipsum</span>
+                        dolor sit amet consectetur.
+                    </h1>
+                    <p class="text">
+                        Suspendisse urna enim, varius nec ante id, cursus
+                        sollicitudin elit. Praesent elit velit, consectetur id
+                        massa sit amet, rhoncus aliquam ligula.
+                    </p>
+                    <button>ACTION</button>
+                </div>
+                <div class="wave"></div>
+            </div>
+            <div class="box2">
+                <div class="cards-container" style="margin-top: -45px">
+                    <div class="card">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="icon"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z"
+                                clip-rule="evenodd"
+                            />
+                        </svg>
+
+                        <h2 class="card-title">
+                            Ut dui neque, volutpat ac erat quis, lobortis.
+                        </h2>
+                        <p class="card-text">
+                            In eget ligula ut est interdum finibus. Etiam
+                            consectetur, libero tincidunt vulputate fermentum
+                        </p>
+                    </div>
+                    <div class="card">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="icon1"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z"
+                                clip-rule="evenodd"
+                            />
+                        </svg>
+                        <h2 class="card-title">
+                            Ut dui neque, volutpat ac erat quis, lobortis.
+                        </h2>
+                        <p class="card-text">
+                            In eget ligula ut est interdum finibus. Etiam
+                            consectetur, libero tincidunt vulputate fermentum
+                        </p>
+                    </div>
+                </div>
+                <div class="cards-container">
+                    <div class="card">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="icon2"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z"
+                                clip-rule="evenodd"
+                            />
+                        </svg>
+                        <h2 class="card-title">
+                            Ut dui neque, volutpat ac erat quis, lobortis.
+                        </h2>
+                        <p class="card-text">
+                            In eget ligula ut est interdum finibus. Etiam
+                            consectetur, libero tincidunt vulputate fermentum
+                        </p>
+                    </div>
+                    <div class="card">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="icon3"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                        >
+                            <path
+                                fill-rule="evenodd"
+                                d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z"
+                                clip-rule="evenodd"
+                            />
+                        </svg>
+
+                        <h2 class="card-title">
+                            Ut dui neque, volutpat ac erat quis, lobortis.
+                        </h2>
+                        <p class="card-text">
+                            In eget ligula ut est interdum finibus. Etiam
+                            consectetur, libero tincidunt vulputate fermentum
+                        </p>
+                    </div>
+                </div>
+                <div class="wave2"></div>
+            </div>
+        </div>
+    </body>
+</html>
